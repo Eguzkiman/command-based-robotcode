@@ -21,7 +21,7 @@ class Drivetrain (Subsystem):
 	def driveManual (self, x, y):
 		powerX = 0 if x < 0.1 and x > -0.1 else x
 		powerY = 0 if y < 0.1 and y > -0.1 else y
-		self.drive.arcadeDrive(powerX, powerY)
+		self.drive.arcadeDrive(powerY, powerX)
 
 
 	def initDefaultCommand (self):
