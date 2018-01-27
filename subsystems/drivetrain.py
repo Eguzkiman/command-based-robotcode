@@ -19,7 +19,10 @@ class Drivetrain (Subsystem):
 		self.drive = wpilib.drive.DifferentialDrive(self.left, self.right)
 
 	def driveManual (self, x, y):
-		self.drive.arcadeDrive(x, y)
+		powerX = 0 if x < 0.1 and x > -0.1 else x
+		powerY = 0 if y < 0.1 and y > -0.1 else y
+		self.drive.arcadeDrive(powerX, powerY)
+
 
 	def initDefaultCommand (self):
 		self.setDefaultCommand(FollowJoystick())
