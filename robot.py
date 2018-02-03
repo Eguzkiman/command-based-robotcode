@@ -5,6 +5,8 @@ from oi import OI
 from subsystems.drivetrain import Drivetrain
 from subsystems.Lift import Lift
 
+from commands.auto import Auto
+
 
 class MyRobot (CommandBasedRobot):
 	def robotInit (self):
@@ -18,6 +20,11 @@ class MyRobot (CommandBasedRobot):
 		self.oi = OI(self)
 
 		# Init commands
+		self.auto = Auto()
+
+	def autonomousInit (self):
+		self.auto.start()
+
 
 if __name__ == '__main__':
 	wpilib.run(MyRobot)

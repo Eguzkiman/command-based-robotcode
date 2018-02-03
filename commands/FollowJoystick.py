@@ -7,7 +7,6 @@ class FollowJoystick (Command):
 		self.requires(self.robot.drivetrain)
 
 	def execute (self):
-
 		powerY = self.robot.joystick.getY() * 0.7
 		powerX = self.robot.joystick.getX() * 0.7
 
