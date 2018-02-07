@@ -7,7 +7,7 @@ class DriveBackwardsFor (TimedCommand):
 		self.requires(self.robot.drivetrain)
 
 	def execute (self):
-		self.robot.drivetrain.driveManual(-1,-1)
+		self.robot.drivetrain.driveManual(-1,0)
 	
 	def end (self):
 		self.robot.drivetrain.driveManual(0,0)
