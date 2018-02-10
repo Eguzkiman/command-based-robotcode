@@ -13,13 +13,12 @@ class OI:
 
 		A_button = JoystickButton(robot.joystick, 1)
 		B_button = JoystickButton(robot.joystick, 2)
-		X_button = JoystickButton(robot.joystick, 3)
-		Y_button = JoystickButton(robot.joystick, 4)
+		LB_button = JoystickButton(robot.joystick, 5)
+		RB_button = JoystickButton(robot.joystick, 6)
 
 		A_button.whenPressed(TurboDrive())
 		A_button.whenReleased(FollowJoystick())
 
-		B_button.whileHeld(LiftUp())
-		Y_button.whileHeld(LiftDrop())
-		X_button.whileHeld(LiftDown())
-
+		RB_button.whileHeld(LiftUp())
+		B_button.whileHeld(LiftDrop())
+		LB_button.whileHeld(LiftDown())

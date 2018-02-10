@@ -3,7 +3,7 @@ from wpilib.command import InstantCommand
 class LiftUp (InstantCommand):
 
 	def __init__ (self):
-		super().__init__('Follow Joystick')
+		super().__init__('Lift up')
 		self.requires(self.robot.lift)
 
 	def execute (self):
