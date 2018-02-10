@@ -3,6 +3,7 @@ import wpilib.drive
 from wpilib.command.subsystem import Subsystem
 
 from commands.FollowJoystick import FollowJoystick
+from commands.Align import Align
 
 class Drivetrain (Subsystem):
 	def __init__ (self):
@@ -17,11 +18,16 @@ class Drivetrain (Subsystem):
 		self.right = wpilib.SpeedControllerGroup(self.frontRight, self.rearRight)
 
 		self.drive = wpilib.drive.DifferentialDrive(self.left, self.right)
+		self.left_sensor = wpilib.DigitalInput(4)
+		self.right_sensor = wpilib.DigitalInput(5)
+
 
 	def driveManual (self, x, y):
 		powerX = 0 if x < 0.1 and x > -0.1 else x
 		powerY = 0 if y < 0.1 and y > -0.1 else y
+		
 		self.drive.arcadeDrive(powerY, powerX)
+
 
 
 	def initDefaultCommand (self):
