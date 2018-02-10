@@ -17,7 +17,7 @@ class Drivetrain (Subsystem):
 		self.rearRight = wpilib.Spark(3)
 		self.right = wpilib.SpeedControllerGroup(self.frontRight, self.rearRight)
 
-		self.drive = wpilib.drive.DifferentialDrive(self.left, self.right)
+		self.drive = wpilib.drive.DifferentialDrive(self.right, self.left)
 		self.left_sensor = wpilib.DigitalInput(4)
 		self.right_sensor = wpilib.DigitalInput(5)
 

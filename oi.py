@@ -12,18 +12,18 @@ class OI:
 	def __init__ (self, robot):
 		robot.joystick = wpilib.Joystick(0)
 
-		A_button = JoystickButton(robot.joystick, 1)
-		B_button = JoystickButton(robot.joystick, 2)
-		X_button = JoystickButton(robot.joystick, 3)
-		Y_button = JoystickButton(robot.joystick, 4)
+		L3_button = JoystickButton(robot.joystick, 9)
+		RT_button = JoystickButton(robot.joystick, 2)
+		LT_button = JoystickButton(robot.joystick, 3)
+		B_button = JoystickButton(robot.joystick, 4)
 		LR_button = JoystickButton(robot.joystick, 5)
 
-		A_button.whenPressed(TurboDrive())
-		A_button.whenReleased(FollowJoystick())
+		L3_button.whenPressed(TurboDrive())
+		L3_button.whenReleased(FollowJoystick())
 		LR_button.whenPressed(Align())
 		LR_button.whenReleased(FollowJoystick())
 
-		B_button.whileHeld(LiftUp())
-		Y_button.whileHeld(LiftDrop())
-		X_button.whileHeld(LiftDown())
+		RT_button.whileHeld(LiftUp())
+		B_button.whileHeld(LiftDrop())
+		LT_button.whileHeld(LiftDown())
 
