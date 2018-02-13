@@ -7,13 +7,18 @@ class Align (Command):
 		self.requires(self.robot.drivetrain)
 
 	def execute (self):
+		left = self.robot.drivetrain.left_ultra.getRangeMM()
+		right = self.robot.drivetrain.right_ultra.getRangeMM()
+		
+		#left = self.robot.drivetrain.left_analog.getVoltage()
+		#right = self.robot.drivetrain.right_analog.getVoltage()
 
-		if self.robot.drivetrain.right_sensor.get() & self.robot.drivetrain.left_sensor.get():
+		if (left >= 30 and left <= 200) & (right >= 30 and right <= 200):
 			self.cancel()
-		elif self.robot.drivetrain.left_sensor.get():
-			self.robot.drivetrain.driveManual(0, 1)
-		elif self.robot.drivetrain.right_sensor.get():
-			self.robot.drivetrain.driveManual(0, -1)
+		elif left >= 30 and left <= 200:
+			self.robot.drivetrain.driveManual(1, 0)
+		elif right >= 30 and right <= 200:
+			self.robot.drivetrain.driveManual(-1, 0)
 		
 		else:
-			self.robot.drivetrain.driveManual(1, 0)
+			self.robot.drivetrain.driveManual(0, 1) #02-0.200
