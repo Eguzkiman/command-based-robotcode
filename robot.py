@@ -10,6 +10,8 @@ from commands.auto import Auto
 
 class MyRobot (CommandBasedRobot):
 	def robotInit (self):
+
+		wpilib.CameraServer.launch('vision.py:main')
 		Command.robot = self
 
 		# Init subsystems
@@ -21,6 +23,7 @@ class MyRobot (CommandBasedRobot):
 
 		# Init commands
 		self.auto = Auto()
+
 
 	def autonomousInit (self):
 		self.auto.start()

@@ -18,11 +18,23 @@ class Drivetrain (Subsystem):
 		self.right = wpilib.SpeedControllerGroup(self.frontRight, self.rearRight)
 
 		self.drive = wpilib.drive.DifferentialDrive(self.right, self.left)
+
+		self.left_ultra = wpilib.Ultrasonic(1, 0)
+		self.right_ultra = wpilib.Ultrasonic(3, 2)
+
+		self.left_ultra.setAutomaticMode(True)
+		self.right_ultra.setAutomaticMode(True)
+
+		self.left_analog = wpilib.AnalogInput(0)
+		self.left_analog = wpilib.AnalogInput(2)
+
 		self.left_sensor = wpilib.DigitalInput(4)
 		self.right_sensor = wpilib.DigitalInput(5)
 
 
 	def driveManual (self, x, y):
+
+
 		powerX = 0 if x < 0.1 and x > -0.1 else x
 		powerY = 0 if y < 0.1 and y > -0.1 else y
 		

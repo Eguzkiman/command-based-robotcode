@@ -8,7 +8,13 @@ class Align (Command):
 
 	def execute (self):
 
-		if self.robot.drivetrain.right_sensor.get() & self.robot.drivetrain.left_sensor.get():
+		# left = self.robot.drivetrain.left_ultra.getRangeMM()
+		# right = self.robot.drivetrain.right_ultra.getRangeMM()
+
+		left = self.robot.drivetrain.left_analog.getVoltage()
+		right = self.robot.drivetrain.right_analog.getVoltage()
+
+		if left >= 2 and left <= 8 and right >= 2 and right <= 8:
 			self.cancel()
 		elif self.robot.drivetrain.left_sensor.get():
 			self.robot.drivetrain.driveManual(0, 1)
