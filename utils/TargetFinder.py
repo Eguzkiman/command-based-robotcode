@@ -4,11 +4,11 @@ import numpy as np
 class TargetFinder ():
 	def __init__ (self):
 		print('TargetFinder init')
-		# (117, 106, 24)
-		self.redBoundaries = ((22, 27, 181), (62, 67, 255))
-		self.blueBoundaries = ((180, 0, 0), (255, 80, 80))
-		self.greenBoundaries = ((90, 150, 0), (151, 255, 10))
-#161 250 118
+
+		self.redBoundaries = ((22, 17, 181), (62, 67, 255))
+		self.blueBoundaries = ((180, 10, 10), (255, 215, 110))
+		self.greenBoundaries = ((60, 120, 47), (120, 255, 160))
+
 	def processShape (self, contour):
 		peri = cv2.arcLength(contour, True)
 		approx = cv2.approxPolyDP(contour, 0.04 * peri, True)
