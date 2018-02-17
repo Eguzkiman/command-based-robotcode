@@ -22,9 +22,12 @@ class Drivetrain (Subsystem):
 		
 		self.left_ultra = wpilib.Ultrasonic(1, 0)
 		self.right_ultra = wpilib.Ultrasonic(3, 2)
+		self.front_ultra = wpilib.Ultrasonic(4, 5)
+
 		
 		self.left_ultra.setAutomaticMode(True)
-		self.left_ultra.setAutomaticMode(True)
+		self.right_ultra.setAutomaticMode(True)
+		self.front_ultra.setAutomaticMode(True)
 
 		# self.left_analog = wpilib.AnalogInput(0)
 		# self.right_analog = wpilib.AnalogInput(2)
