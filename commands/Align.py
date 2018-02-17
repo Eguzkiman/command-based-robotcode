@@ -13,8 +13,8 @@ class Align (Command):
 		
 		wpilib.DriverStation.reportWarning('left: ' + str(left), False)
 		wpilib.DriverStation.reportWarning('right: ' + str(right), False)
-		#left = self.robot.drivetrain.left_analog.getVoltage()
-		#right = self.robot.drivetrain.right_analog.getVoltage()	  
+		# left = self.robot.drivetrain.left_analog.getVoltage()
+		# right = self.robot.drivetrain.right_analog.getVoltage()	  
 
 		if left >= 10 and left <= 400 and right >= 10 and right <= 400:
 			self.cancel()
