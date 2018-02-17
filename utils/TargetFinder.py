@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import math
 
 class TargetFinder ():
 	def __init__ (self):
@@ -59,9 +60,36 @@ class TargetFinder ():
 				
 		return frame
 
-# img = cv2.imread('photo.jpg')
+	def findColor (self, frame, boundaries):
+		# (lower, upper) = ((0, 0, 0), (15, 15, 15))
+		(lower, upper) = boundaries
 
-# processed = finder.processFrame(img, boundaries=greenBoundaries)
-# cv2.imshow('hue', processed)
+		lower = np.array(lower, dtype="uint8")
+		upper = np.array(upper, dtype="uint8")
+		blurred = cv2.GaussianBlur(frame, (5, 5), 0)
 
-# cv2.waitKey(0) 
+		mask = cv2.inRange(blurred, lower, upper)
+		kernel = np.ones((2,2), np.uint8)
+
+		erosion = cv2.erode(mask, kernel, iterations=4)
+		dilation = cv2.dilate(erosion, kernel, iterations=4)
+
+		(left, right) = self._split_in_two(dilation)
+
+		left_count = left.sum().sum()
+		right_count = right.sum().sum()
+
+		if not left_count and not right_count:
+			return None
+		else:
+			return 'left' if left_count > right_count else 'right'
+
+		cv2.imshow("images", left)
+		key = cv2.waitKey(1) & 0xFF
+
+
+	def _split_in_two (self, arr):
+		half = math.ceil(arr.shape[1] / 2)
+		return np.split(arr, [half], 1)
+
+		# cv2.imshow('img', mask)

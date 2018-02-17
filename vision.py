@@ -3,8 +3,13 @@ import numpy as np
 from utils import TargetFinder
 
 from cscore import CameraServer
+from networktables import NetworkTables
+
 
 def main():
+    NetworkTables.initialize(server='roborio-5716-frc.local')
+    sd = NetworkTables.getTable('SmartDashboard')
+
     cs = CameraServer.getInstance()
     cs.enableLogging()
     
@@ -24,7 +29,6 @@ def main():
     finder = TargetFinder.TargetFinder()
 
     while True:
-        print("!")
         # Tell the CvSink to grab a frame from the camera and put it
         # in the source image.  If there is an error notify the output.
         time, img = cvSink.grabFrame(img)
@@ -35,6 +39,9 @@ def main():
             continue
         
         # Process frame
-        img = finder.processFrame(img, finder.redBoundaries)    
+        img = finder.processFrame(img, finder.greenBoundaries)
+        direction = finder.findColor(finder.redBoundaries)
+        sd.putValue('autoDirection', direction)
+
         # Give the output stream a new image to display
         outputStream.putFrame(img)

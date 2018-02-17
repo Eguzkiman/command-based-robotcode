@@ -2,17 +2,21 @@ from wpilib.command import CommandGroup
 import commandbased.flowcontrol as fc
 
 from commands.DriveFor import DriveFor
-
-def flipCoin ():
-	return False
-
+from commands.Observe import Observe
 
 class Auto (CommandGroup):
 
 	def __init__ (self):
 		super().__init__('auto')
+		self.addSequential(Observe())
 
-		self.addSequential(DriveFor(seconds=6, direction=(1,0)))
+		@fc.IF(lambda: self.robot.autoDirection == 'left')
+		def driveLeft ():
+			self.addSequential(DriveFor(seconds=6, direction=(0, -1)))
+
+		@fc.ELIF(lambda: self.robot.autoDirection == 'right')
+		def driveRight ():
+			self.addSequential(DriveFor(seconds=6, direction=(0, 1)))
 
 		# @fc.IF(flipCoin)
 		# def driveForward(self):
