@@ -16,11 +16,11 @@ class OI:
 		RT_button = JoystickButton(robot.joystick, 2)
 		LT_button = JoystickButton(robot.joystick, 3)
 		B_button = JoystickButton(robot.joystick, 4)
-		LR_button = JoystickButton(robot.joystick, 5)
+		LB_button = JoystickButton(robot.joystick, 5)
 
 		L3_button.whenPressed(TurboDrive())
 		L3_button.whenReleased(FollowJoystick())
-		LR_button.whenPressed(Align())
+		LB_button.whenPressed(Align())
 		LR_button.whenReleased(FollowJoystick())
 
 		RT_button.whileHeld(LiftUp())
