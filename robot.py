@@ -4,6 +4,9 @@ from wpilib.command import Command
 from oi import OI
 from subsystems.drivetrain import Drivetrain
 from commands.auto import Auto
+from commands.MoveArmTo import MoveArmTo
+from commands.MoveClawTo import MoveClawTo
+from subsystems.Arm import Arm
 
 
 class MyRobot (CommandBasedRobot):
@@ -12,6 +15,8 @@ class MyRobot (CommandBasedRobot):
 
 		# Init subsystems
 		self.drivetrain = Drivetrain()
+
+		self.Arm = Arm()
 
 		# Init oi
 		self.oi = OI(self)

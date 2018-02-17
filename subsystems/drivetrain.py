@@ -30,7 +30,7 @@ class Drivetrain (Subsystem):
 
 		# self.left_analog = wpilib.AnalogInput(0)
 		# self.right_analog = wpilib.AnalogInput(2)
-		# self.left_sensor = wpilib.DigitalInput(4)
+		# sself.left_sensor = wpilib.DigitalInput(4)
 		# self.right_sensor = wpilib.DigitalInput(5)
 
 
