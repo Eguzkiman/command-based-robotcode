@@ -3,8 +3,6 @@ from commandbased import CommandBasedRobot
 from wpilib.command import Command
 from oi import OI
 from subsystems.drivetrain import Drivetrain
-from subsystems.Lift import Lift
-
 from commands.auto import Auto
 
 
@@ -14,7 +12,6 @@ class MyRobot (CommandBasedRobot):
 
 		# Init subsystems
 		self.drivetrain = Drivetrain()
-		self.lift = Lift()
 
 		# Init oi
 		self.oi = OI(self)

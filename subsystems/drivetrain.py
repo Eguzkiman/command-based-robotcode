@@ -1,7 +1,6 @@
 import wpilib
 import wpilib.drive
 from wpilib.command.subsystem import Subsystem
-
 from commands.FollowJoystick import FollowJoystick
 from commands.Align import Align
 
