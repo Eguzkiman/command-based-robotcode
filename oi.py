@@ -21,7 +21,7 @@ class OI:
 		L3_button.whenPressed(TurboDrive())
 		L3_button.whenReleased(FollowJoystick())
 		LB_button.whenPressed(Align())
-		#LR_button.whenReleased(FollowJoystick())
+		LB_button.whenReleased(FollowJoystick())
 
 		RT_button.whileHeld(LiftUp())
 		B_button.whileHeld(LiftDrop())
