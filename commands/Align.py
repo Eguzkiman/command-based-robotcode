@@ -9,7 +9,7 @@ class Align (Command):
 
 	def execute (self):
 		right = self.robot.drivetrain.left_ultra.getRangeMM()
-		right = self.robot.drivetrain.right_ultra.getRangeMM()
+		lefth = self.robot.drivetrain.right_ultra.getRangeMM()
 		
 		wpilib.DriverStation.reportWarning('left: ' + str(left), False)
 		wpilib.DriverStation.reportWarning('right: ' + str(right), False)
