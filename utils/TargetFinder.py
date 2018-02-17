@@ -6,8 +6,8 @@ class TargetFinder ():
 		print('TargetFinder init')
 
 		self.redBoundaries = ((22, 17, 181), (62, 67, 255))
-		self.blueBoundaries = ((180, 10, 10), (255, 215, 110))
-		self.greenBoundaries = ((60, 120, 47), (120, 255, 160))
+		self.blueBoundaries = ((180, 30, 30), (255, 215, 160))
+		self.greenBoundaries = ((80, 170, 160), (140, 255, 210))
 
 	def processShape (self, contour):
 		peri = cv2.arcLength(contour, True)
@@ -57,7 +57,7 @@ class TargetFinder ():
 					(0, 255, 255), 2)
 				cv2.circle(frame, center, 5, (0, 0, 255), -1)
 				
-		return mask
+		return frame
 
 # img = cv2.imread('photo.jpg')
 

@@ -35,6 +35,6 @@ def main():
             continue
         
         # Process frame
-        img = finder.processFrame(img, finder.greenBoundaries)    
+        img = finder.processFrame(img, finder.redBoundaries)    
         # Give the output stream a new image to display
         outputStream.putFrame(img)
