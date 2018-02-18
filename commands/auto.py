@@ -7,7 +7,7 @@ from commands.MoveArmFor import MoveArmFor
 
 
 def flipCoin ():
-	return False
+	pass
 
 
 class Auto (CommandGroup):
@@ -19,6 +19,7 @@ class Auto (CommandGroup):
 		self.addSequential(MoveArmFor(seconds=3, power=1))
 
 		self.addSequential(MoveClawFor(seconds=2, power=-1))
+
 		self.addSequential(MoveClawFor(seconds=4, power=1))
 
 		self.addSequential(MoveArmFor(seconds=3, power=-1))

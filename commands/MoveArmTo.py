@@ -11,4 +11,3 @@ class MoveArmTo (Command):
 	def execute (self):
 
 		self.robot.Arm.move_arm(self.power)
-
