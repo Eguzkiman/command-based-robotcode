@@ -1,3 +1,4 @@
+
 import wpilib
 from wpilib.buttons import JoystickButton
 from commands.TurboDrive import TurboDrive
@@ -25,17 +26,18 @@ class OI:
 		LB_button.whenPressed(Align())
 		LB_button.whenReleased(FollowJoystick())
 
-		B_button.whenPressed(MoveArmTo(power=-1))
-		B_button.whenReleased(MoveArmTo(power=0))
 
-		A_button.whenPressed(MoveArmTo(power=1))
-		A_button.whenReleased(MoveArmTo(power=0))
-
-		Y_button.whenPressed(MoveClawTo(power=-1))
-		Y_button.whenReleased(MoveClawTo(power=0))
-
-		X_button.whenPressed(MoveClawTo(power=1))
+		X_button.whenPressed(MoveClawTo(power=.3))
 		X_button.whenReleased(MoveClawTo(power=0))
+
+		B_button.whenPressed(MoveClawTo(power=-.3))
+		B_button.whenReleased(MoveClawTo(power=0))
+
+		Y_button.whenPressed(MoveArmTo(power=1))
+		Y_button.whenReleased(MoveArmTo(power=0))
+
+		A_button.whenPressed(MoveArmTo(power=-1))
+		A_button.whenReleased(MoveArmTo(power=0))
 
 
 
