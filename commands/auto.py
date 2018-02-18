@@ -11,11 +11,11 @@ class Auto (CommandGroup):
 		self.addSequential(Observe())
 
 		@fc.IF(lambda: self.robot.autoDirection == 'left')
-		def driveLeft ():
+		def driveLeft (self):
 			self.addSequential(DriveFor(seconds=6, direction=(0, -1)))
 
 		@fc.ELIF(lambda: self.robot.autoDirection == 'right')
-		def driveRight ():
+		def driveRight (self):
 			self.addSequential(DriveFor(seconds=6, direction=(0, 1)))
 
 		# @fc.IF(flipCoin)
