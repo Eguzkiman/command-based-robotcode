@@ -11,3 +11,7 @@ class MoveClawTo (Command):
 	def execute (self):
 
 		self.robot.Arm.move_claw(self.power)
+
+	def end (self):
+
+		self.robot.Arm.move_claw(0)

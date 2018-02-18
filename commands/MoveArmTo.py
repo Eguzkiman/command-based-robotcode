@@ -12,3 +12,7 @@ class MoveArmTo (Command):
 
 		self.robot.Arm.move_arm(self.power)
 
+	def end (self):
+
+		self.robot.Arm.move_arm(0)
+
