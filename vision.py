@@ -5,7 +5,6 @@ from utils import TargetFinder
 from cscore import CameraServer
 from networktables import NetworkTables
 
-
 def main():
     NetworkTables.initialize(server='roborio-5716-frc.local')
     sd = NetworkTables.getTable('SmartDashboard')
