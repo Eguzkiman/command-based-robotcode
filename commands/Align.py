@@ -20,11 +20,11 @@ class Align (Command):
 		if front >= 10 and front <= 500:
 			self.cancel()
 		elif left > 10 and left < self.max_distance:
-			self.robot.drivetrain.driveManual(0.9, 0)
+			self.robot.drivetrain.driveManual(0.7, 0)
 			self.max_distance = 630
 		elif right > 10 and right < self.max_distance:
-			self.robot.drivetrain.driveManual(-0.9, 0)
+			self.robot.drivetrain.driveManual(-0.7, 0)
 			self.max_distance = 630
 		else:
-			self.robot.drivetrain.driveManual (0, 0.5)
+			self.robot.drivetrain.driveManual (0, -0.6)
 

@@ -26,16 +26,16 @@ class OI:
 		LB_button.whenPressed(Align())
 		LB_button.whenReleased(FollowJoystick())
 
-		X_button.whenPressed(MoveClawTo(power=-.3))
+		X_button.whenPressed(MoveClawTo(power=-.5))
 		X_button.whenReleased(MoveClawTo(power=0))
 
-		B_button.whenPressed(MoveClawTo(power=.3))
+		B_button.whenPressed(MoveClawTo(power=.5))
 		B_button.whenReleased(MoveClawTo(power=0))
 
-		Y_button.whenPressed(MoveArmTo(power=1))
+		Y_button.whenPressed(MoveArmTo(power=-1))
 		Y_button.whenReleased(MoveArmTo(power=0))
 
-		A_button.whenPressed(MoveArmTo(power=-1))
+		A_button.whenPressed(MoveArmTo(power=1))
 		A_button.whenReleased(MoveArmTo(power=0))
 
 

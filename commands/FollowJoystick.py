@@ -10,4 +10,4 @@ class FollowJoystick (Command):
 		powerY = self.robot.joystick.getY() * 0.7
 		powerX = self.robot.joystick.getRawAxis(4)
 
-		self.robot.drivetrain.driveManual(powerX, powerY)
+		self.robot.drivetrain.driveManual(powerX, -powerY)

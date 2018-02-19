@@ -18,8 +18,8 @@ class Drivetrain (Subsystem):
 
 		self.drive = wpilib.drive.DifferentialDrive(self.right, self.left)
 
-		self.left_ultra = wpilib.Ultrasonic(5, 4)
-		self.right_ultra = wpilib.Ultrasonic(3, 2)
+		self.right_ultra = wpilib.Ultrasonic(5, 4)
+		self.left_ultra = wpilib.Ultrasonic(3, 2)
 		self.front_ultra = wpilib.Ultrasonic(1, 0)
 
 		self.left_ultra.setAutomaticMode(True)
