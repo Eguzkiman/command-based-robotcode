@@ -26,7 +26,6 @@ class OI:
 		LB_button.whenPressed(Align())
 		LB_button.whenReleased(FollowJoystick())
 
-
 		X_button.whenPressed(MoveClawTo(power=-.3))
 		X_button.whenReleased(MoveClawTo(power=0))
 
