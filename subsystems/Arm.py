@@ -8,8 +8,12 @@ class Arm(Subsystem):
 		self.arm_motor = wpilib.Jaguar(4)
 		self.claw = wpilib.Jaguar(5)
 
+		self.max_sensor = wpilib.DigitalInput(6)
+
 	def move_claw(self, power):
-	 	self.claw.set(power)
+		if self.max_sensor.get():
+			power = max(0, power)
+		self.claw.set(power)
 
 	def move_arm(self, power):
-	 	self.arm_motor.set(power) 	
+	 	self.arm_motor.set(power)

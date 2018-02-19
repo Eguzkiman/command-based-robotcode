@@ -2,7 +2,7 @@ from wpilib.command import TimedCommand
 from networktables import NetworkTables
 
 class Observe (TimedCommand):
-	def __init__ (self, seconds = 5):
+	def __init__ (self, seconds = 3):
 		super().__init__('Observe', seconds)
 		self.requires(self.robot.drivetrain)
 		NetworkTables.initialize(server='roborio-5716-frc.local')

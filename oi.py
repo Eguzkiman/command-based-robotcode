@@ -17,7 +17,7 @@ class OI:
 		A_button = JoystickButton(robot.joystick, 1)
 		B_button = JoystickButton(robot.joystick, 2)
 		X_button = JoystickButton(robot.joystick, 3)
-		Y_button = JoystickButton(robot.joystick, 4)
+		Y_button = JoystickButton(robot.joystick, 4) 
 
 
 		L3_button.whenPressed(TurboDrive())
@@ -27,10 +27,10 @@ class OI:
 		LB_button.whenReleased(FollowJoystick())
 
 
-		X_button.whenPressed(MoveClawTo(power=.3))
+		X_button.whenPressed(MoveClawTo(power=-.3))
 		X_button.whenReleased(MoveClawTo(power=0))
 
-		B_button.whenPressed(MoveClawTo(power=-.3))
+		B_button.whenPressed(MoveClawTo(power=.3))
 		B_button.whenReleased(MoveClawTo(power=0))
 
 		Y_button.whenPressed(MoveArmTo(power=1))

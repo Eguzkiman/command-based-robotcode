@@ -80,7 +80,7 @@ class TargetFinder ():
 		right_count = right.sum().sum()
 
 		if not left_count and not right_count:
-			return None
+			return 0
 		else:
 			return 'left' if left_count > right_count else 'right'
 
