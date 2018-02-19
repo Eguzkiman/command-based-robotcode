@@ -6,6 +6,10 @@ class TargetFinder ():
 	def __init__ (self):
 		print('TargetFinder init')
 
+		self.hsvGreenBoundaries = ((40, 60, 60), (80, 255, 255))
+		self.hsvRedBoundaries = ((0, 150, 60), (18, 255, 255))
+		self.hsvBlueBoundaries = ((90, 160, 20), (131, 255, 255))
+
 		self.redBoundaries = ((22, 17, 181), (62, 67, 255))
 		self.blueBoundaries = ((180, 30, 30), (255, 215, 160))
 		self.greenBoundaries = ((80, 170, 160), (140, 255, 210))
@@ -17,10 +21,12 @@ class TargetFinder ():
 
 	def processFrame (self, frame, boundaries):
 		(lower, upper) = boundaries
-
 		lower = np.array(lower, dtype="uint8")
 		upper = np.array(upper, dtype="uint8")
-		blurred = cv2.GaussianBlur(frame, (5, 5), 0)
+
+		frame_hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+
+		blurred = cv2.GaussianBlur(frame_hsv, (5, 5), 0)
 
 		mask = cv2.inRange(blurred, lower, upper)
 		kernel = np.ones((2,2),np.uint8)
@@ -80,7 +86,7 @@ class TargetFinder ():
 		right_count = right.sum().sum()
 
 		if not left_count and not right_count:
-			return None
+			return 0
 		else:
 			return 'left' if left_count > right_count else 'right'
 
