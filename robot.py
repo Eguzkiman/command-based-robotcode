@@ -27,6 +27,7 @@ class MyRobot (CommandBasedRobot):
 		self.auto = Auto()
 
 
+
 	def autonomousInit (self):
 		self.auto.start()
 
