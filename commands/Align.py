@@ -17,15 +17,7 @@ class Align (Command):
 		wpilib.DriverStation.reportWarning('right: ' + str(right), False)
 		wpilib.DriverStation.reportWarning('front: ' + str(front), False)
 
-
-
-		# left = self.robot.drivetrain.left_analog.getVoltage()
-		# right = self.robot.drivetrain.right_analog.getVoltage()	  
-
-
-# ----------------------------------------------------------------------------------
-
-		if front >= 10 and front <= 493:
+		if front >= 10 and front <= 500:
 			self.cancel()
 		elif left > 10 and left < self.max_distance:
 			self.robot.drivetrain.driveManual(-0.9, 0)
@@ -35,7 +27,3 @@ class Align (Command):
 			self.max_distance = 630
 		else:
 			self.robot.drivetrain.driveManual (0, -0.5)
-
-
-
-#0, 400
