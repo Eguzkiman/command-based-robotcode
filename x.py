@@ -6,4 +6,8 @@ camera = cv2.VideoCapture(0)
 
 while True:
 	(grabbed, frame) = camera.read()
-	print(finder.findColor(frame, finder.greenBoundaries))
+	# frame_hsv = cv2.cvtColor(frame,cv2.COLOR_BGR2HSV)
+	print(frame)
+	frame = finder.processFrame(frame, finder.hsvGreenBoundaries)
+	cv2.imshow('img', frame)
+	key = cv2.waitKey(1) & 0xFF
