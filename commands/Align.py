@@ -27,4 +27,3 @@ class Align (Command):
 			self.max_distance = 630
 		else:
 			self.robot.drivetrain.driveManual (0, 0.6)
-
