@@ -3,12 +3,14 @@ import numpy as np
 from utils import TargetFinder
 
 from cscore import CameraServer
-from networktables import NetworkTables
+from networktables.util import ntproperty
+
+class Table ():
+    target = ntproperty('/target', 0)
+
+networkTable = Table()
 
 def main():
-    NetworkTables.initialize(server='roborio-5716-frc.local')
-    sd = NetworkTables.getTable('SmartDashboard')
-
     cs = CameraServer.getInstance()
     cs.enableLogging()
     
@@ -40,7 +42,8 @@ def main():
         # Process frame
         img = finder.processFrame(img, finder.hsvBlueBoundaries)
         direction = finder.findColor(img, finder.hsvBlueBoundaries)
-        sd.putValue('autoDirection', direction)
+        # sd.putValue('autoDirection', direction)
+        networkTable.target = direction
 
         # Give the output stream a new image to display
         outputStream.putFrame(img)
