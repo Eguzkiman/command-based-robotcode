@@ -7,8 +7,6 @@ class Observe (TimedCommand):
 
 	def execute (self):
 		self.direction = self.robot.sd.getValue('autoDirection', 0)
-		# self.direction = 'right'
-		# self.robot.sd.putValue('autoDirection', self.direction)
 
 	def isFinished (self):
 		return bool(self.direction)
