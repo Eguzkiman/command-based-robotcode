@@ -1,4 +1,6 @@
 import wpilib
+from networktables import NetworkTables
+
 from commandbased import CommandBasedRobot
 from wpilib.command import Command
 from oi import OI
@@ -14,6 +16,10 @@ class MyRobot (CommandBasedRobot):
 
 		wpilib.CameraServer.launch('vision.py:main')
 		Command.robot = self
+
+		# Init networktables
+		NetworkTables.initialize()
+		self.sd = NetworkTables.getTable('SmartDashboard')
 
 		# Init subsystems
 		self.drivetrain = Drivetrain()
