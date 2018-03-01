@@ -38,8 +38,8 @@ def main():
         
     #     # Process frame
         img = finder.processFrame(img, finder.hsvBlueBoundaries)
-        # direction = finder.findColor(img, finder.hsvBlueBoundaries)
-        # sd.putValue('blueDirection', direction)
+        direction = finder.findColor(img, finder.hsvBlueBoundaries)
+        sd.putValue('blueDirection', direction)
 
     #     # Give the output stream a new image to display
         outputStream.putFrame(img)
