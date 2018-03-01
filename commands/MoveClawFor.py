@@ -1,8 +1,8 @@
-from wpilib.command import Command
+from wpilib.command import TimedCommand
 
-class MoveClawTo (Command):
-	def __init__ (self, power=0):
-		super().__init__('Move Claw')
+class MoveClawFor (TimedCommand):
+	def __init__ (self, seconds, power):
+		super().__init__('MoveClawFor', seconds)
 		self.requires(self.robot.Arm)
 
 		self.power = power
@@ -12,3 +12,4 @@ class MoveClawTo (Command):
 
 	def end (self):
 		self.robot.Arm.move_claw(0)
+

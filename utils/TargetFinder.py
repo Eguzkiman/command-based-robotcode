@@ -8,7 +8,7 @@ class TargetFinder ():
 
 		self.hsvGreenBoundaries = ((40, 60, 60), (80, 255, 255))
 		self.hsvRedBoundaries = ((0, 150, 60), (18, 255, 255))
-		self.hsvBlueBoundaries = ((90, 150, 150), (131, 255, 255))
+		self.hsvBlueBoundaries = ((90, 180, 180), (131, 255, 255))
 
 		self.redBoundaries = ((22, 17, 181), (62, 67, 255))
 		self.blueBoundaries = ((180, 30, 30), (255, 215, 160))
@@ -82,6 +82,9 @@ class TargetFinder ():
 
 		(left, right) = self._split_in_two(dilation)
 
+		cv2.imshow("images", dilation)
+		key = cv2.waitKey(1) & 0xFF
+
 		left_count = left.sum().sum()
 		right_count = right.sum().sum()
 
@@ -90,8 +93,6 @@ class TargetFinder ():
 		else:
 			return 'left' if left_count > right_count else 'right'
 
-		cv2.imshow("images", left)
-		key = cv2.waitKey(1) & 0xFF
 
 
 	def _split_in_two (self, arr):
