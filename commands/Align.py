@@ -7,7 +7,11 @@ class Align (Command):
 		super().__init__('Align') 
 		self.requires(self.robot.drivetrain)
 		self.max_distance = 650
-		self.aligned = False
+		self.isAligned = False
+
+	def start (self):
+		self.isAligned = False
+		super().start()
 
 	def execute (self):
 		right = self.robot.drivetrain.left_ultra.getRangeMM()
@@ -19,15 +23,15 @@ class Align (Command):
 		wpilib.DriverStation.reportWarning('front: ' + str(front), False)
 
 		if front >= 10 and front <= 500:
-			self.aligned = True
+			self.isAligned = True
 		elif left > 10 and left < self.max_distance:
-			self.robot.drivetrain.driveManual(0.7, 0)
+			self.robot.drivetrain.driveManual(-0.7, 0)
 			self.max_distance = 630
 		elif right > 10 and right < self.max_distance:
-			self.robot.drivetrain.driveManual(-0.7, 0)
+			self.robot.drivetrain.driveManual(0.7, 0)
 			self.max_distance = 630
 		else:
 			self.robot.drivetrain.driveManual (0, -0.6)
 
 	def isFinished (self):
-		return not self.aligned
+		return self.isAligned
