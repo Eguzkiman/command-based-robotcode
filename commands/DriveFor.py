@@ -13,7 +13,8 @@ class DriveFor (TimedCommand):
 
 	def execute (self):
 		self.robot.drivetrain.driveManual(self.y, self.x)
+		print('drivefor execute')
 
 	def end (self):
 		self.robot.drivetrain.driveManual(0, 0)
-
+		print('drivefor end')
