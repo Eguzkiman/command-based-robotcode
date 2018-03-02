@@ -19,11 +19,15 @@ class Auto (CommandGroup):
 		def driveLeft (self):
 			self.addSequential(DriveFor(seconds=2, direction=(0, -0.6)))
 			self.addSequential(Align())
+			self.addSequential(MoveArmFor(seconds=1, power=1))
+			self.addSequential(MoveClawFor(seconds=0.5, power=0.5))
 
 		@fc.ELIF(lambda: self.robot.sd.getValue('autoDirection', 0) == 'right')
 		def driveRight (self):
 			self.addSequential(DriveFor(seconds=2, direction=(0, 0.6)))
 			self.addSequential(Align())
+			self.addSequential(MoveArmFor(seconds=1, power=1))
+			self.addSequential(MoveClawFor(seconds=0.5, power=0.5))
 
 		@fc.ELSE
 		def goForward(self):
