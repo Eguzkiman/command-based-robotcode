@@ -5,29 +5,32 @@ class Observe (TimedCommand):
 	def __init__ (self, seconds = 0.5):
 		super().__init__('Observe', seconds)
 		self.requires(self.robot.drivetrain)
-		self.direction = None
+		self.robot.autoDirection = None
 
 	def execute (self):
-		blueDirection = self.robot.sd.getValue('blueDirection', 0)
 
-		if not blueDirection:
-			return
+		self.robot.autoDirection = wpilib.DriverStation.getInstance().getGameSpecificMessage()[0]
 
-		allianceNumber = wpilib.DriverStation.getInstance().getAlliance()
+		# blueDirection = self.robot.sd.getValue('blueDirection', 0)
 
-		isRedAlliance = allianceNumber == 0
-		isBlueAlliance = allianceNumber == 1
-		isInvalidAlliance = allianceNumber == 2
+		# if not blueDirection:
+		# 	return
 
-		if isInvalidAlliance:
-			pass
-		elif isBlueAlliance:
-			self.direction = blueDirection
-		else:
-			self.direction = 'left' if blueDirection == 'right' else 'right'
+		# allianceNumber = wpilib.DriverStation.getInstance().getAlliance()
 
-		self.robot.sd.putValue('autoDirection', self.direction)
+		# isRedAlliance = allianceNumber == 0
+		# isBlueAlliance = allianceNumber == 1
+		# isInvalidAlliance = allianceNumber == 2
+
+		# if isInvalidAlliance:
+		# 	pass
+		# elif isBlueAlliance:
+		# 	self.direction = blueDirection
+		# else:
+		# 	self.direction = 'left' if blueDirection == 'right' else 'right'
+
+		# self.robot.sd.putValue('autoDirection', self.direction)
 
 
 	def isFinished (self):
-		return bool(self.direction) or self.isTimedOut()
+		return self.robot.autoDirection or self.isTimedOut()
