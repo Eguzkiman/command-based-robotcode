@@ -9,17 +9,17 @@ class Drivetrain (Subsystem):
 		super().__init__()
 
 		self.frontLeft = wpilib.Spark(0)
-		self.rearLeft = wpilib.Spark(1)
+		self.rearLeft = wpilib.Spark(3)
 		self.left = wpilib.SpeedControllerGroup(self.frontLeft, self.rearLeft)
 
-		self.frontRight = wpilib.Spark(2)
-		self.rearRight = wpilib.Spark(3)
+		self.frontRight = wpilib.Spark(1)
+		self.rearRight = wpilib.Spark(2)
 		self.right = wpilib.SpeedControllerGroup(self.frontRight, self.rearRight)
 
 		self.drive = wpilib.drive.DifferentialDrive(self.right, self.left)
 
-		self.right_ultra = wpilib.Ultrasonic(5, 4)
-		self.left_ultra = wpilib.Ultrasonic(3, 2)
+		self.left_ultra = wpilib.Ultrasonic(5, 4)
+		self.right_ultra = wpilib.Ultrasonic(3, 2)
 		self.front_ultra = wpilib.Ultrasonic(1, 0)
 
 		self.left_ultra.setAutomaticMode(True)

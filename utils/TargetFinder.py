@@ -72,7 +72,10 @@ class TargetFinder ():
 
 		lower = np.array(lower, dtype="uint8")
 		upper = np.array(upper, dtype="uint8")
-		blurred = cv2.GaussianBlur(frame, (5, 5), 0)
+
+		frame_hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+
+		blurred = cv2.GaussianBlur(frame_hsv, (5, 5), 0)
 
 		mask = cv2.inRange(blurred, lower, upper)
 		kernel = np.ones((2,2), np.uint8)
@@ -81,9 +84,6 @@ class TargetFinder ():
 		dilation = cv2.dilate(erosion, kernel, iterations=4)
 
 		(left, right) = self._split_in_two(dilation)
-
-		cv2.imshow("images", dilation)
-		key = cv2.waitKey(1) & 0xFF
 
 		left_count = left.sum().sum()
 		right_count = right.sum().sum()
