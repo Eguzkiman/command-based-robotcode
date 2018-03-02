@@ -14,7 +14,6 @@ class Arm(Subsystem):
 		if self.max_sensor.get():
 			power = max(0, power)
 		self.claw.set(power)
-		wpilib.DriverStation.reportWarning('Contact_sensor: ' + str(self.max_sensor.get()), False)
 
 	def move_arm(self, power):
 	 	self.arm_motor.set(power)

@@ -12,7 +12,6 @@ class Auto (CommandGroup):
 		super().__init__('auto')
 
 		self.addSequential(MoveClawFor(seconds=0.5, power=-0.5))
-		self.addSequential(Observe())
 
 		@fc.IF(lambda: self.robot.sd.getValue('autoDirection', 0) == 'left')
 		def driveLeft (self):

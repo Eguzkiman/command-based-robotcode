@@ -12,10 +12,12 @@ class Align (Command):
 		right = self.robot.drivetrain.left_ultra.getRangeMM()
 		left = self.robot.drivetrain.right_ultra.getRangeMM()
 		front = self.robot.drivetrain.front_ultra.getRangeMM()
+
+		print('Align execute')
 		
 		wpilib.DriverStation.reportWarning('left: ' + str(left), False)
 		wpilib.DriverStation.reportWarning('right: ' + str(right), False)
-		wpilib.DriverStation.reportWarning('front: ' + str(front), False)  
+		wpilib.DriverStation.reportWarning('front: ' + str(front), False)
 
 		if front >= 10 and front <= 500:
 			self.cancel()
