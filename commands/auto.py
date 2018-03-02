@@ -35,3 +35,4 @@ class Auto (CommandGroup):
 			self.addSequential(Align())
 			self.addSequential(MoveArmFor(seconds=1, power=1))
 			self.addSequential(MoveClawFor(seconds=0.5, power=0.5))
+
