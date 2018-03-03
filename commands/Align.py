@@ -31,7 +31,7 @@ class Align (Command):
 			self.robot.drivetrain.driveManual(0.7, 0)
 			self.max_distance = 630
 		else:
-			self.robot.drivetrain.driveManual (0, -0.6)
+			self.robot.drivetrain.driveManual (0, -0.4)
 
 	def isFinished (self):
 		return self.isAligned

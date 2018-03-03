@@ -9,7 +9,8 @@ class Observe (TimedCommand):
 
 	def execute (self):
 
-		self.robot.autoDirection = wpilib.DriverStation.getInstance().getGameSpecificMessage()[0]
+		message =wpilib.DriverStation.getInstance().getGameSpecificMessage()
+		self.robot.autoDirection = message[0] if len(message) else ''
 
 		# blueDirection = self.robot.sd.getValue('blueDirection', 0)
 
