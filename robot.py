@@ -14,7 +14,6 @@ from subsystems.Arm import Arm
 class MyRobot (CommandBasedRobot):
 	def robotInit (self):
 
-		wpilib.CameraServer.launch('vision.py:main')
 		Command.robot = self
 
 		# Init networktables

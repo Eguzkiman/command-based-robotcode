@@ -3,7 +3,6 @@ import commandbased.flowcontrol as fc
 
 from commands.DriveFor import DriveFor
 from commands.MoveClawFor import MoveClawFor
-from commands.Observe import Observe
 from commands.Align import Align
 
 class Auto (CommandGroup):

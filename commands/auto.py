@@ -4,7 +4,6 @@ import commandbased.flowcontrol as fc
 from commands.DriveFor import DriveFor
 from commands.MoveClawFor import MoveClawFor
 from commands.MoveArmFor import MoveArmFor
-from commands.Observe import Observe
 from commands.Align import Align
 
 class Auto (CommandGroup):
@@ -13,7 +12,6 @@ class Auto (CommandGroup):
 		super().__init__('auto')
 
 		self.addSequential(MoveClawFor(seconds=0.5, power=-0.5))
-		self.addSequential(Observe())
 		# self.addSequential(DriveFor(seconds=4.5, direction=(-0.45, 0)))
 
 		@fc.IF(lambda: self.robot.autoDirection == 'L')
