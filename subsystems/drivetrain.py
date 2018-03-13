@@ -10,13 +10,11 @@ class Drivetrain (Subsystem):
 
 		self.frontLeft = wpilib.Spark(0)
 		self.rearLeft = wpilib.Spark(3)
-		self.left = wpilib.SpeedControllerGroup(self.frontLeft, self.rearLeft)
 
 		self.frontRight = wpilib.Spark(1)
 		self.rearRight = wpilib.Spark(2)
-		self.right = wpilib.SpeedControllerGroup(self.frontRight, self.rearRight)
 
-		self.drive = wpilib.drive.DifferentialDrive(self.right, self.left)
+		self.drive = wpilib.drive.MecanumDrive(self.frontLeft, self.rearLeft, self.frontRight, self.rearRight)
 
 		self.left_ultra = wpilib.Ultrasonic(5, 4)
 		self.right_ultra = wpilib.Ultrasonic(3, 2)
@@ -26,12 +24,13 @@ class Drivetrain (Subsystem):
 		self.right_ultra.setAutomaticMode(True)
 		self.front_ultra.setAutomaticMode(True)
 
-	def driveManual (self, x, y):
+	def driveManual (self, x, y, z):
 
 		powerX = 0 if x < 0.1 and x > -0.1 else x
 		powerY = 0 if y < 0.1 and y > -0.1 else y
-		
-		self.drive.arcadeDrive(powerY, powerX)
+		powerZ = 0 if z < 0.1 and z > -0.1 else z
+
+		self.drive.driveCartesian(powerY, powerX, powerZ)
 
 	def initDefaultCommand (self):
 		self.setDefaultCommand(FollowJoystick())
