@@ -30,7 +30,7 @@ class Drivetrain (Subsystem):
 		powerY = 0 if y < 0.1 and y > -0.1 else y
 		powerZ = 0 if z < 0.1 and z > -0.1 else z
 
-		self.drive.driveCartesian(powerY, powerX, powerZ)
+		self.drive.driveCartesian(powerX, powerY, powerZ)
 
 	def initDefaultCommand (self):
 		self.setDefaultCommand(FollowJoystick())

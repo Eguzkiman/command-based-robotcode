@@ -7,6 +7,7 @@ from commands.Align import Align
 from commands.rightauto import RightAuto
 from commands.leftauto import LeftAuto
 from commands.VeryDumbAuto import VeryDumbAuto
+from commands.notlambotauto import NotLambotAuto
 
 class Auto (Command):
 
@@ -15,6 +16,8 @@ class Auto (Command):
 		self.chooser.addDefault('Dumb auto', 1)
 		self.chooser.addObject('Left auto', 2)
 		self.chooser.addObject('Right auto', 3)
+		self.chooser.addObject('Not Lambot Auto', 4)
+
 
 		wpilib.SmartDashboard.putData('Autonomous Mode', self.chooser)
 
@@ -30,4 +33,8 @@ class Auto (Command):
 		elif self.chooser.getSelected()== 3:
 			self.RightAuto = RightAuto()
 			self.RightAuto.start()
+
+		elif self.chooser.getSelected()== 4:
+			self.NotLambotAuto = NotLambotAuto()
+			self.NotLambotAuto.start()
 		
