@@ -11,8 +11,6 @@ class DriveFor (TimedCommand):
 		self.y = y
 		self.z = z
 
-
-
 	def execute (self):
 		self.robot.drivetrain.driveManual(self.y, self.x, self.z)
 		print('drivefor execute')

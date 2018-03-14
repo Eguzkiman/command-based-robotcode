@@ -7,7 +7,6 @@ class MoveArmTo (Command):
 
 		self.power = power
 
-
 	def execute (self):
 
 		self.robot.Arm.move_arm(self.power)

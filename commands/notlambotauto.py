@@ -19,26 +19,22 @@ class NotLambotAuto (CommandGroup):
 		def driveAndDrop (self):
 
 			self.addSequential(MoveClawFor(seconds=0.5, power=-0.5))
+			self.addSequential(DriveFor(seconds=1, direction=(0, -0.6, 0)))     
 			self.addSequential(DriveFor(seconds=2, direction=(-0.6, 0, 0)))     
+			self.addSequential(DriveFor(seconds=3, direction=(0, -0.6, 0)))     
 			self.addSequential(MoveArmFor(seconds=1, power=1))
 			self.addSequential(MoveClawFor(seconds=0.5, power=0.5))
 			self.addSequential(MoveArmFor(seconds=1, power=-1))
-
-
 
 
 		@fc.ELIF(lambda: self.robot.autoDirection == 'R')
 		def driveAndDrop (self):
 
 			self.addSequential(MoveClawFor(seconds=0.5, power=-0.5))
-			self.addSequential(DriveFor(seconds=2, direction=(0.6, 0, 0)))     
+			self.addSequential(DriveFor(seconds=1, direction=(0, -0.6, 0)))      
+			self.addSequential(DriveFor(seconds=2, direction=(0.6, 0, 0)))      
+			self.addSequential(DriveFor(seconds=3, direction=(0, -0.6, 0)))      
 			self.addSequential(MoveArmFor(seconds=1, power=1))
 			self.addSequential(MoveClawFor(seconds=0.5, power=0.5))
 			self.addSequential(MoveArmFor(seconds=1, power=-1))
 
-
-		@fc.ELSE
-		def drive (self):
-
-			self.addSequential(MoveClawFor(seconds=0.5, power=-0.5))
-			self.addSequential(DriveFor(seconds=2, direction=(-0.6, 0, 0)))
