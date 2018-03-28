@@ -10,4 +10,4 @@ class VeryDumbAuto (CommandGroup):
 		super().__init__('auto')
 
 		self.addSequential(MoveClawFor(seconds=0.5, power=-0.5))
-		self.addSequential(DriveFor(seconds=3, direction=(0.7, 0, 0)))
+		self.addSequential(DriveFor(seconds=3, direction=(0.7, 0)))

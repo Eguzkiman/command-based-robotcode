@@ -5,16 +5,16 @@ class DriveFor (TimedCommand):
 		super().__init__('Drive For', seconds)
 		self.requires(self.robot.drivetrain)
 
-		(x, y, z) = direction
+		(x, y) = direction
 
 		self.x = x
 		self.y = y
-		self.z = z
+		#self.z = z
 
 	def execute (self):
-		self.robot.drivetrain.driveManual(self.y, self.x, self.z)
+		self.robot.drivetrain.driveManual(self.y, self.x)
 		print('drivefor execute')
 
 	def end (self):
-		self.robot.drivetrain.driveManual(0, 0, 0)
+		self.robot.drivetrain.driveManual(0, 0)
 		print('drivefor end')

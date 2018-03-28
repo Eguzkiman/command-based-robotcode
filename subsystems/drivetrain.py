@@ -24,13 +24,13 @@ class Drivetrain (Subsystem):
 		self.right_ultra.setAutomaticMode(True)
 		self.front_ultra.setAutomaticMode(True)
 
-	def driveManual (self, x, y, z):
+	def driveManual (self, x, y):
 
 		powerX = 0 if x < 0.1 and x > -0.1 else x
 		powerY = 0 if y < 0.1 and y > -0.1 else y
-		powerZ = 0 if z < 0.1 and z > -0.1 else z
+		#powerZ = 0 if z < 0.1 and z > -0.1 else z
 
-		self.drive.driveCartesian(powerX, powerY, powerZ)
+		self.drive.driveCartesian(powerX, powerY)
 
 	def initDefaultCommand (self):
 		self.setDefaultCommand(FollowJoystick())
