@@ -32,10 +32,10 @@ class OI:
 		B_button.whenPressed(MoveClawTo(power=.5))
 		B_button.whenReleased(MoveClawTo(power=0))
 
-		Y_button.whenPressed(MoveArmTo(power=-1))
+		Y_button.whenPressed(MoveArmTo(power=1))
 		Y_button.whenReleased(MoveArmTo(power=0))
 
-		A_button.whenPressed(MoveArmTo(power=1))
+		A_button.whenPressed(MoveArmTo(power=-1))
 		A_button.whenReleased(MoveArmTo(power=0))
 
 
