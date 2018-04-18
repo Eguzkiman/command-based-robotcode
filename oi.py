@@ -11,15 +11,13 @@ from commands.MoveClawTo import MoveClawTo
 class OI:
 	def __init__ (self, robot):
 		robot.joystick = wpilib.Joystick(0)
-		robot.joystick1 = wpilib.Joystick(1)
 
-
-		L3_button = JoystickButton(robot.joystick1, 9)
-		LB_button = JoystickButton(robot.joystick1, 5)
-		A_button = JoystickButton(robot.joystick1, 1)
-		B_button = JoystickButton(robot.joystick1, 2)
-		X_button = JoystickButton(robot.joystick1, 3)
-		Y_button = JoystickButton(robot.joystick1, 4) 
+		L3_button = JoystickButton(robot.joystick, 9)
+		LB_button = JoystickButton(robot.joystick, 5)
+		A_button = JoystickButton(robot.joystick, 1)
+		B_button = JoystickButton(robot.joystick, 2)
+		X_button = JoystickButton(robot.joystick, 3)
+		Y_button = JoystickButton(robot.joystick, 4) 
 
 
 		L3_button.whenPressed(TurboDrive())
