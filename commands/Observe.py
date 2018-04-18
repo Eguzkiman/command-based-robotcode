@@ -17,7 +17,7 @@ class Observe (TimedCommand):
 		# if not blueDirection:
 		# 	return
 
-		# allianceNumber = wpilib.DriverStation.getInstance().getAlliance()
+		allianceNumber = wpilib.DriverStation.getInstance().getAlliance()
 
 		# isRedAlliance = allianceNumber == 0
 		# isBlueAlliance = allianceNumber == 1
