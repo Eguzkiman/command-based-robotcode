@@ -13,21 +13,21 @@ class Auto (Command):
 
 	def __init__ (self):
 		self.chooser = wpilib.SendableChooser()
-		self.chooser.addDefault('Dumb Auto', 1)
+		self.chooser.addDefault('Very Dumb Auto', 1)
 		self.chooser.addObject('Left Auto', 2)
 		self.chooser.addObject('Right Auto', 3)
 
 		wpilib.SmartDashboard.putData('Autonomous Mode', self.chooser)
 
 	def start (self):
-		if  self.chooser.getSelected()== 1:
-			self.VeryDumbAuto = VeryDumbAuto()
-			self.VeryDumbAuto.start()
+		# if  self.chooser.getSelected()== 1:
+			# self.VeryDumbAuto = VeryDumbAuto()
+			# self.VeryDumbAuto.start()
 
-		elif self.chooser.getSelected()== 2:
-			self.LeftAuto = LeftAuto()
-			self.LeftAuto.start()
+		# elif self.chooser.getSelected()== 2:
+		# 	self.LeftAuto = LeftAuto()
+		# 	self.LeftAuto.start()
 
-		elif self.chooser.getSelected()== 3:
+		# elif self.chooser.getSelected()== 3:
 			self.RightAuto = RightAuto()
 			self.RightAuto.start()

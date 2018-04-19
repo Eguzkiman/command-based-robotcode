@@ -32,7 +32,7 @@ class Drivetrain (Subsystem):
 		powerY = 0 if y < 0.1 and y > -0.1 else y
 		#powerZ = 0 if z < 0.1 and z > -0.1 else z
 
-		self.drive.arcadeDrive(powerX, powerY)
+		self.drive.arcadeDrive(powerY, powerX)
 
 	def initDefaultCommand (self):
 		self.setDefaultCommand(FollowJoystick())
